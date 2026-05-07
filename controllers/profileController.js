@@ -22,7 +22,7 @@ export const getAllProfiles = async (req, res, next) => {
 };
 
 export const getProfile = async (req, res, next) => {
-  const { userId } = req.params;
+  const userId = req.user._id;
   console.log("userId :>> ", userId);
 
   try {
@@ -52,7 +52,7 @@ export const getProfile = async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: "Profile found.",
-      data: profile,
+      profile,
     });
   } catch (error) {
     res.status(500).json({

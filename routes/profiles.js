@@ -8,7 +8,8 @@ import {
 
 const router = express.Router();
 
+router.get("/me", getProfile);
+
 router.get("/", authorizeRoles("owner", "admin"), getAllProfiles);
-router.get("/:userId", getProfile);
 
 export default router;
